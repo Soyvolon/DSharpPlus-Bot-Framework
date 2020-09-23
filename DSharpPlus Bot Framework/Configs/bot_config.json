@@ -1,15 +1,13 @@
 // Example Configuration
 {
 
-  "token": "NDM4NTAzOTU1NDUxMDg0ODAx.Wt_SoQ.nJYHX98Fe8O0a-dvUPvWooaI1Uw",
+  "token": "",
 
   "prefix": "+",
 
   "shards": 1,
 
   "superadmins": [
-
-    133735496479145984
 
   ]
 

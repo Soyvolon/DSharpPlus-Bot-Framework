@@ -12,7 +12,6 @@ namespace DSharpPlus_Bot_Framework
         #region Event Ids
         public static EventId PrefixManager { get; } = new EventId(127001, "Prefix Manager");
         public static EventId CommandResponder { get; } = new EventId(127002, "Command Responder");
-        
         #endregion
 
         public static readonly string VERSION = "0.0.0";
@@ -48,6 +47,7 @@ namespace DSharpPlus_Bot_Framework
         private static void AddModules()
         {
             // Use this place to enable modules.
+
         }
     }
 }

@@ -112,12 +112,9 @@ namespace DSharpPlus_Bot_Framework
             var root = @"Configs\";
             if (File.Exists($"{root}database_config.json"))
             {
-                var json = "";
-
                 using var fs = new FileStream($"{root}database_config.json", FileMode.Open);
                 using var sr = new StreamReader(fs);
-                json = await sr.ReadToEndAsync().ConfigureAwait(false);
-
+                string json = await sr.ReadToEndAsync().ConfigureAwait(false);
                 try
                 {
                     Database = JsonConvert.DeserializeObject<DatabaseConfig>(json);
@@ -215,6 +212,8 @@ namespace DSharpPlus_Bot_Framework
 
                 c.RegisterCommands(Assembly.GetExecutingAssembly());
 
+                c.SetHelpFormatter<HelpFormatter>();
+
                 CommandList = c.RegisteredCommands.Keys;
             }
 
@@ -236,7 +235,7 @@ namespace DSharpPlus_Bot_Framework
                 TokenType = TokenType.Bot,
                 MinimumLogLevel = logLevel,
                 ShardCount = Config.Shards,
-                Intents = DiscordIntents.Guilds | DiscordIntents.GuildBans
+                Intents = DiscordIntents.Guilds | DiscordIntents.GuildBans | DiscordIntents.GuildMessages | DiscordIntents.DirectMessages,
             };
 
             return cfg;
@@ -248,7 +247,7 @@ namespace DSharpPlus_Bot_Framework
             {
                 EnableDms = false,
                 EnableMentionPrefix = true,
-                EnableDefaultHelp = false, //Make custom help formatter
+                EnableDefaultHelp = true,
                 CaseSensitive = false,
                 IgnoreExtraArguments = false,
                 PrefixResolver = PrefixResolver,
