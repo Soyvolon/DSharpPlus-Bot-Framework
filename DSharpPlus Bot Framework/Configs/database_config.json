@@ -1,0 +1,14 @@
+// Example Configuration
+{
+
+  "database": "BotMain",
+
+  "hostname": "localhost",
+
+  "username": "postgres",
+
+  "password": "password",
+
+  "GeneralDb": "GuildConfigs"
+
+}
